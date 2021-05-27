@@ -106,7 +106,7 @@ def main():
 
     # Create extraction folder and extract frames
     IS_WINDOWS = 'Windows' == platform.system()
-    extractionDir = "tmpSuperSloMo"
+    extractionDir = f"tmpSuperSloMo-{os.getpid()}"
     if not IS_WINDOWS:
         # Assuming UNIX-like system where "." indicates hidden directories
         extractionDir = "." + extractionDir
