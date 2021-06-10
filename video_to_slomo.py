@@ -91,11 +91,11 @@ def create_video(dir):
 
     error = ""
     if ".mkv" in args.output:
-        print('{} -r {} -i {}/%d.png -vcodec ffvhuff {}'.format(ffmpeg_path, args.fps, dir, args.output))
-        retn = os.system('{} -r {} -i {}/%d.png -vcodec ffvhuff "{}"'.format(ffmpeg_path, args.fps, dir, args.output))
+        print('{} -r {} -i {}/%d.png -vcodec ffvhuff -r {} {}'.format(ffmpeg_path, args.fps, dir, args.fps, args.output))
+        retn = os.system('{} -r {} -i {}/%d.png -vcodec ffvhuff -r {} "{}"'.format(ffmpeg_path, args.fps, dir, args.fps, args.output))
     else:
-        print('{} -r {} -i {}/%d.png -pix_fmt yuv420p {}'.format(ffmpeg_path, args.fps, dir, args.output))
-        retn = os.system('{} -r {} -i {}/%d.png -pix_fmt yuv420p "{}"'.format(ffmpeg_path, args.fps, dir, args.output))
+        print('{} -r {} -i {}/%d.png -pix_fmt yuv420p -r {} {}'.format(ffmpeg_path, args.fps, dir, args.fps, args.output))
+        retn = os.system('{} -r {} -i {}/%d.png -pix_fmt yuv420p -r {} "{}"'.format(ffmpeg_path, args.fps, dir, args.fps, args.output))
     if retn:
         error = "Error creating output video. Exiting."
     return error
